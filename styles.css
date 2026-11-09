@@ -42,19 +42,26 @@ button:focus-visible { outline: 3px solid #ff910d; outline-offset: 5px; }
 .hero { position: relative; isolation: isolate; min-height: clamp(612px, calc(100vh - 128px), 840px); }
 .hero-content { position: relative; min-height: inherit; display: grid; grid-template-columns: 58% 42%; align-items: stretch; }
 .hero-copy { position: relative; z-index: 3; padding-top: clamp(34px, 5.1vh, 73px); padding-bottom: 130px; }
-.brands { display: flex; justify-content: flex-start; align-items: center; gap: clamp(19px, 2.8vw, 47px); max-width: 710px; margin-bottom: clamp(55px, 6.8vh, 90px); }
-.brand { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; height: 72px; max-width: 142px; padding: 4px 6px; color: white; background: transparent; border: 0; opacity: .94; transition: opacity .18s, transform .18s, color .18s; }
-.brand:hover { opacity: 1; transform: translateY(-4px) scale(1.02); color: #ffd2a4; }
-.brand-nike { width: 123px; flex-direction: column; gap: 0; }
-.nike-text { font: italic 900 36px/.9 Impact, 'Arial Black', sans-serif; letter-spacing: -.07em; }
-.brand-nike svg { width: 100px; height: 29px; margin-top: -2px; }
-.brand-adidas { width: 103px; flex-direction: column; gap: 2px; font-size: 22px; letter-spacing: -.065em; font-weight: 800; }
-.brand-adidas svg { width: 74px; height: 34px; }
-.brand-newbalance { width: 135px; flex-direction: column; gap: 0; }
-.nb-monogram { display: block; font: italic 1000 55px/.75 Impact, 'Arial Black', sans-serif; letter-spacing: -.13em; padding-right: 9px; }
-.nb-caption { display: block; font-size: 12px; font-weight: 800; letter-spacing: -.07em; margin-top: 7px; }
-.brand-jordan { flex-direction: column; gap: 2px; min-width: 92px; font-size: 14px; font-weight: 900; letter-spacing: .01em; }
-.brand-jordan svg { width: 49px; height: 49px; }
+.brands { display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: clamp(12px, 1.6vw, 18px); max-width: 780px; margin-bottom: clamp(55px, 6.8vh, 90px); }
+.brand-tag {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 12px 22px;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  white-space: nowrap;
+}
+.brand-tag--nike { font: italic 900 clamp(24px, 2vw, 31px)/1 Impact, 'Arial Black', sans-serif; letter-spacing: -.06em; text-transform: uppercase; }
+.brand-tag--adidas { font: 900 clamp(24px, 1.8vw, 29px)/1 'Arial Black', Arial, sans-serif; letter-spacing: -.06em; }
+.brand-tag--newbalance { font: italic 900 clamp(20px, 1.55vw, 25px)/1 'Arial Black', Arial, sans-serif; letter-spacing: -.04em; }
+.brand-tag--jordan { font: 900 clamp(22px, 1.65vw, 27px)/1 'Arial Black', Arial, sans-serif; letter-spacing: .03em; text-transform: uppercase; }
 .hero h1 { margin: 0; font-family: Impact, 'Arial Black', 'Arial Narrow', sans-serif; font-size: clamp(66px, 6.8vw, 122px); font-style: italic; font-stretch: condensed; font-weight: 1000; letter-spacing: -.055em; line-height: .99; text-shadow: 2px 3px 0 #0003; position: relative; white-space: nowrap; }
 .paint-stroke { display: block; width: clamp(142px, 16vw, 236px); height: 13px; margin: 17px 0 clamp(31px, 4vh, 55px) 127px; background: var(--orange); transform: rotate(-7deg); border-radius: 99% 45% 20% 45%; box-shadow: 38px 5px 0 -5px rgba(255,115,0,.65); }
 .paint-stroke::after { content: ''; display: block; height: 21px; width: 6px; border-radius: 10px; background: var(--orange); position: absolute; left: 66%; top: 8px; }
@@ -102,11 +109,8 @@ button:focus-visible { outline: 3px solid #ff910d; outline-offset: 5px; }
   .logo-shoe { width: 54px; }
   .main-nav { gap: 22px; }
   .hero-copy { padding-top: 35px; }
-  .brands { gap: 15px; margin-bottom: 67px; }
-  .brand-nike { width: 96px; }
-  .brand-adidas { width: 88px; }
-  .brand-newbalance { width: 104px; }
-  .brand-jordan { min-width: 70px; }
+  .brands { gap: 12px; margin-bottom: 67px; }
+  .brand-tag { min-height: 48px; padding: 10px 18px; }
   .hero h1 { font-size: clamp(62px, 7.4vw, 85px); }
   .sneaker-image { width: clamp(520px, 61vw, 725px); right: -90px; bottom: 55px; }
   .graffiti-crown { right: 20%; }
@@ -128,18 +132,12 @@ button:focus-visible { outline: 3px solid #ff910d; outline-offset: 5px; }
   .hero { min-height: auto; }
   .hero-content { display: flex; flex-direction: column; }
   .hero-copy { padding-top: 13px; padding-bottom: 0; }
-  .brands { width: 100%; max-width: 510px; justify-content: space-between; margin: 0 0 42px; gap: 5px; }
-  .brand { height: 60px; padding: 2px; }
-  .brand-nike { width: 84px; }
-  .nike-text { font-size: 29px; }
-  .brand-nike svg { width: 78px; height: 19px; }
-  .brand-adidas { width: 73px; font-size: 16px; }
-  .brand-adidas svg { width: 59px; height: 28px; }
-  .brand-newbalance { width: 88px; }
-  .nb-monogram { font-size: 39px; }
-  .nb-caption { font-size: 8px; margin-top: 5px; }
-  .brand-jordan { min-width: 59px; font-size: 9px; }
-  .brand-jordan svg { width: 40px; height: 40px; }
+  .brands { width: 100%; max-width: 560px; justify-content: flex-start; margin: 0 0 42px; gap: 8px; }
+  .brand-tag { min-height: 46px; padding: 10px 16px; }
+  .brand-tag--nike { font-size: 25px; }
+  .brand-tag--adidas { font-size: 22px; }
+  .brand-tag--newbalance { font-size: 18px; }
+  .brand-tag--jordan { font-size: 20px; }
   .hero h1 { font-size: clamp(51px, 10.45vw, 84px); line-height: .96; letter-spacing: -.044em; }
   .paint-stroke { width: 160px; height: 10px; margin: 12px 0 22px 90px; }
   .cta-button { min-height: 62px; min-width: 257px; padding: 11px 22px; font-size: 20px; border-radius: 10px; }
@@ -167,7 +165,12 @@ button:focus-visible { outline: 3px solid #ff910d; outline-offset: 5px; }
   .icon-button svg { width: 24px; height: 24px; }
   .main-nav { padding: 14px 0 15px; gap: 10px; }
   .main-nav button { font-size: 13px; padding: 9px 17px; }
-  .brands { max-width: 420px; margin-bottom: 33px; }
+  .brands { max-width: 100%; margin-bottom: 33px; gap: 8px; }
+  .brand-tag { min-height: 42px; padding: 9px 14px; }
+  .brand-tag--nike { font-size: 22px; }
+  .brand-tag--adidas { font-size: 19px; }
+  .brand-tag--newbalance { font-size: 15px; }
+  .brand-tag--jordan { font-size: 17px; }
   .hero-copy { padding-top: 9px; }
   .hero h1 { font-size: clamp(45px, 10.85vw, 65px); }
   .paint-stroke { margin: 12px 0 25px 75px; }
@@ -192,10 +195,12 @@ button:focus-visible { outline: 3px solid #ff910d; outline-offset: 5px; }
   .icon-button { width: 31px; height: 38px; padding: 4px; }
   .icon-button svg { width: 22px; height: 22px; }
   .main-nav button { padding: 8px 13px; }
-  .brand-nike { width: 65px; }
-  .brand-adidas { width: 66px; }
-  .brand-newbalance { width: 76px; }
-  .brand-jordan { min-width: 54px; }
+  .brands { gap: 7px; }
+  .brand-tag { min-height: 38px; padding: 8px 11px; }
+  .brand-tag--nike { font-size: 18px; }
+  .brand-tag--adidas { font-size: 16px; }
+  .brand-tag--newbalance { font-size: 13px; }
+  .brand-tag--jordan { font-size: 14px; }
   .hero h1 { font-size: clamp(43px, 11.3vw, 50px); }
   .hero-visual { height: 292px; }
   .sneaker-image { width: 495px; right: -120px; }
