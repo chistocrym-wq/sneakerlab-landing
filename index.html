@@ -13,8 +13,49 @@
   <title>SNEAKERLAB — брендовые кроссовки</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <!-- Yandex.Metrika: visits, referrers, and identifiable AI referrals -->
+  <script>
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j=0; j<document.scripts.length; j++) {
+        if (document.scripts[j].src===r) return;
+      }
+      k=e.createElement(t); a=e.getElementsByTagName(t)[0];
+      k.async=1; k.src=r; a.parentNode.insertBefore(k,a);
+    })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114153852','ym');
+
+    (function(){
+      // A platform is identifiable only if the referrer or UTM source reveals it.
+      var aiPlatforms = [
+        {name:'ChatGPT', domains:['chatgpt.com','chat.openai.com'], utm:['chatgpt','openai']},
+        {name:'Perplexity', domains:['perplexity.ai'], utm:['perplexity']},
+        {name:'Gemini', domains:['gemini.google.com'], utm:['gemini']},
+        {name:'Claude', domains:['claude.ai'], utm:['claude']},
+        {name:'Copilot', domains:['copilot.microsoft.com'], utm:['copilot']},
+        {name:'DeepSeek', domains:['chat.deepseek.com'], utm:['deepseek']},
+        {name:'Grok', domains:['grok.com','grok.x.ai'], utm:['grok']},
+        {name:'Алиса', domains:['alice.yandex.ru'], utm:['alice','yandex_alice']},
+        {name:'GigaChat', domains:['giga.chat'], utm:['gigachat']}
+      ];
+      var referrerHost='';
+      try { if(document.referrer) referrerHost=new URL(document.referrer).hostname.toLowerCase(); }
+      catch (error) { /* Ignore malformed referrers. */ }
+      var utmSource=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase();
+      var aiPlatform=aiPlatforms.find(function(platform){
+        return platform.utm.indexOf(utmSource)!==-1 || platform.domains.some(function(domain){
+          return referrerHost===domain || referrerHost.endsWith('.'+domain);
+        });
+      });
+      var settings={ssr:true, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true};
+      if(aiPlatform) settings.params={ai_platform:aiPlatform.name};
+      ym(114153852,'init',settings);
+    })();
+  </script>
+  <!-- /Yandex.Metrika -->
 </head>
 <body>
+  <noscript><div><img src="https://mc.yandex.ru/watch/114153852" style="position:absolute; left:-9999px;" alt=""></div></noscript>
   <main class="page">
     <div class="street-panel">
       <!-- Все кликабельные элементы — настоящие кнопки, независимо от изображения. -->
