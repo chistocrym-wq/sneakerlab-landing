@@ -1,75 +1,207 @@
-:root{--black:#111;--orange:#ff7000;--paper:#f8f8f7;--text:#fff;font-family:Arial,Helvetica,sans-serif}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--black);overflow-x:hidden}
-button{font:inherit;cursor:pointer}
-button:focus-visible{outline:3px solid #ff810f;outline-offset:4px}
-.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%)}
-.desktop-design{position:relative;max-width:1920px;margin:0 auto;line-height:0}
-.desktop-art{display:block;width:100%;height:auto;user-select:none}
-.desktop-clicks{position:absolute;inset:0;pointer-events:none}
-.hotspot{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);display:block;border:0;background:transparent;border-radius:8px;pointer-events:auto;transition:background .2s,box-shadow .2s;line-height:normal}
-.hotspot:hover{background:rgba(255,255,255,.085);box-shadow:inset 0 0 0 2px rgba(255,255,255,.26)}
-.hotspot--cta{border-radius:12px}
-.hotspot--cta:hover{background:rgba(255,255,255,.13);box-shadow:inset 0 0 0 2px rgba(0,0,0,.25),0 0 25px rgba(255,112,0,.18)}
-.mobile-design{display:none}
-.maintenance-modal{position:fixed;z-index:1000;max-width:min(92vw,450px);width:calc(100% - 34px);border:0;border-radius:15px;padding:0;box-shadow:0 22px 80px rgba(0,0,0,.38);color:#111;background:#fff;overflow:visible}
-.maintenance-modal::backdrop{background:rgba(0,0,0,.74);backdrop-filter:blur(8px)}
-.maintenance-modal[open]{animation:modal-in .2s ease-out}
-.modal-inner{position:relative;padding:38px 29px 29px;text-align:center;overflow:hidden;border-radius:15px}
-.modal-inner::before{content:"";position:absolute;left:-20px;top:0;right:-20px;height:7px;background:var(--orange);transform:rotate(-.7deg)}
-.modal-mark{display:inline-flex;align-items:center;justify-content:center;width:53px;height:53px;border-radius:50%;background:#161616;color:var(--orange);font-size:29px;font-weight:900;font-style:italic;letter-spacing:-8px;padding-right:8px;margin-bottom:19px}
-.maintenance-modal h2{font-weight:900;text-transform:uppercase;font-style:italic;font-size:clamp(24px,5vw,31px);line-height:1.06;margin:0 0 28px;letter-spacing:-.6px}
-.modal-ok{width:100%;min-height:54px;background:var(--orange);border:0;border-radius:9px;font-weight:900;font-size:19px;transition:background .2s,transform .2s}
-.modal-ok:hover{background:#ff8b1c}
-.modal-ok:active{transform:scale(.98)}
-@keyframes modal-in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-@media(max-width:800px){
- .desktop-design{display:none}
- .mobile-design{display:block}
- .mobile-dark{position:relative;isolation:isolate;overflow:hidden;min-height:725px;background:linear-gradient(148deg,#191919 0%,#090909 48%,#323232 85%,#121212 100%);color:#fff}
- .mobile-dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;background:repeating-linear-gradient(164deg,transparent 0,transparent 43px,rgba(255,255,255,.045) 45px,transparent 49px),radial-gradient(ellipse at 82% 44%,rgba(255,255,255,.17),transparent 54%)}
- .mobile-dark::after{content:"";position:absolute;bottom:0;right:-20%;width:85%;height:40%;border:33px solid rgba(255,255,255,.07);transform:rotate(-25deg);pointer-events:none;z-index:-1}
- .mobile-header{display:flex;align-items:center;justify-content:space-between;padding:21px 18px 10px;gap:8px}
- .mobile-logo{display:flex;align-items:center;gap:7px;min-width:0;border:0;padding:0;background:transparent;color:#fff;font-weight:1000;font-style:italic;font-family:Impact,"Arial Black",sans-serif;letter-spacing:.4px;font-size:clamp(20px,5.4vw,28px);transform:skew(-5deg)}
- .mobile-logo span{position:relative;white-space:nowrap}
- .mobile-logo span::after{content:"";height:5px;background:var(--orange);position:absolute;bottom:-8px;left:24%;right:8%;border-radius:90%;transform:rotate(-5deg)}
- .logo-shoe{width:38px;min-width:31px;height:31px}
- .mobile-header-actions{display:flex;align-items:center;gap:6px}
- .icon-button{position:relative;display:grid;place-items:center;width:32px;height:36px;padding:4px;border:0;color:#fff;background:transparent}
- .icon-button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
- .cart-count{position:absolute;top:-1px;right:-3px;display:grid;place-items:center;min-width:14px;height:14px;border-radius:50%;background:#ff7300;color:#fff;font-size:9px;font-weight:900}
- .mobile-nav{display:flex;justify-content:center;gap:10px;margin:21px 12px 14px}
- .mobile-nav button{border:1px solid rgba(255,255,255,.27);background:rgba(0,0,0,.23);color:#eee;border-radius:100px;padding:9px 15px;font-size:13px;font-weight:700}
- .mobile-nav button:hover{border-color:var(--orange)}
- .brand-strip{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-around;gap:9px;padding:15px 16px 10px;min-height:76px}
- .brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;max-width:25%;height:50px;padding:0;background:transparent;border:0;color:#fff;filter:drop-shadow(0 2px 3px #000);font-weight:900;white-space:nowrap}
- .brand:hover{color:#ffb16a}
- .brand-nike{font-family:Impact,"Arial Black",sans-serif;font-size:25px;font-style:italic}
- .nike-swoosh{width:53px;height:6px;background:white;border-radius:50%;transform:skew(-52deg) rotate(-12deg);margin-top:-4px}
- .brand-adidas{font-size:15px;letter-spacing:-.9px}
- .adidas-stripes{font-size:24px;line-height:18px;letter-spacing:-7px;transform:rotate(-16deg);margin-left:-4px}
- .brand-nb{font-family:Impact,sans-serif;font-style:italic;font-size:28px;line-height:.8}
- .brand-nb span{font-family:Arial,sans-serif;font-style:normal;font-weight:800;font-size:7px;letter-spacing:-.3px;margin-top:5px}
- .brand-jordan{font-size:13px;letter-spacing:-.4px;transform:rotate(-5deg)}
- .mobile-copy{position:relative;z-index:3;margin:24px 18px 0}
- .mobile-copy h2{font-family:Impact,"Arial Black",sans-serif;font-weight:900;font-size:clamp(47px,12.8vw,80px);line-height:.94;letter-spacing:-.5px;white-space:nowrap;font-style:italic;text-shadow:2px 3px 1px rgba(0,0,0,.26);margin:0}
- .paint-cross{position:absolute;right:-7px;top:-56px;color:var(--orange);font-size:62px;font-family:Impact,sans-serif;transform:rotate(-15deg);opacity:.95}
- .orange-brush{display:block;width:144px;height:8px;border-radius:60%;transform:rotate(-6deg);margin:13px 0 30px 95px;background:var(--orange);box-shadow:24px 4px 0 -2px #de5900}
- .mobile-cta{border:0;border-radius:10px;min-height:62px;padding:0 25px;display:inline-flex;align-items:center;gap:16px;background:var(--orange);font-size:20px;font-weight:900;color:#111;box-shadow:0 11px 31px rgba(0,0,0,.3)}
- .mobile-cta span{font-size:29px}
- .mobile-cta:active{transform:scale(.98)}
- .mobile-shoe{position:relative;margin-top:-10px;height:clamp(315px,86vw,500px);width:100%;overflow:hidden;z-index:1}
- .mobile-shoe::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#131313 0,transparent 26%,transparent 82%,rgba(18,18,18,.55) 100%),linear-gradient(90deg,#161616 0,rgba(16,16,16,.2) 22%,transparent 52%)}
- .mobile-shoe img{display:block;width:100%;height:100%;object-fit:cover;object-position:73% 50%;filter:contrast(1.1) saturate(1.09)}
- .mobile-benefits{background:var(--paper);color:#111;padding:15px 23px 18px;margin-top:-1px;position:relative}
- .mobile-benefits::before{content:"";position:absolute;left:0;right:0;top:-13px;height:16px;background:var(--paper);clip-path:polygon(0 65%,4% 30%,8% 60%,13% 12%,19% 50%,24% 32%,30% 82%,35% 31%,42% 57%,50% 25%,57% 72%,63% 36%,69% 62%,77% 20%,84% 57%,91% 22%,96% 51%,100% 15%,100% 100%,0 100%)}
- .benefit-row{display:flex;gap:23px;padding:24px 5px 22px;align-items:center}
- .benefit-row+.benefit-row{border-top:1px solid #d8d8d8}
- .benefit-row svg{width:54px;height:54px;flex-shrink:0;fill:none;stroke:#111;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
- .benefit-row h3{font-size:26px;line-height:1.08;margin:0 0 7px;font-weight:900;letter-spacing:-.6px}
- .benefit-row p{color:#484848;font-size:17px;line-height:1.35;margin:0}
+:root {
+  --ink: #111112;
+  --paper: #f9f9f7;
+  --orange: #ff7300;
+  --container: 1400px;
+  color-scheme: light;
 }
-@media(max-width:360px){.mobile-header{padding:18px 12px 10px}.mobile-logo{font-size:19px}.logo-shoe{width:31px}.mobile-header-actions{gap:1px}.icon-button{width:29px}.mobile-copy{margin:18px 14px 0}.mobile-copy h2{font-size:12.5vw}.mobile-cta{font-size:18px;padding:0 19px}}
-@media(min-width:801px) and (max-width:1040px){.desktop-design{min-height:auto}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 300px; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button:focus-visible { outline: 3px solid #ff910d; outline-offset: 5px; }
+.container { width: min(calc(100% - 88px), var(--container)); margin-inline: auto; }
+.page { overflow: clip; }
+.street-panel {
+  color: #fff;
+  background: linear-gradient(90deg, rgba(3,3,4,.84) 0%, rgba(4,4,4,.68) 34%, rgba(10,10,10,.29) 100%),
+    url('assets/urban-wall.webp') center top / cover no-repeat,
+    #1a1a1c;
+  position: relative;
+  isolation: isolate;
+}
+.street-panel::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  opacity: .24; background: repeating-linear-gradient(130deg, transparent 0 87px, rgba(255,255,255,.045) 90px, transparent 98px);
+}
+.site-header { position: relative; z-index: 20; }
+.header-layout { display: flex; align-items: center; gap: 36px; min-height: 111px; }
+.logo-button { display: inline-flex; align-items: center; flex: 0 0 auto; gap: 14px; padding: 9px 2px; border: 0; background: none; color: #fff; }
+.logo-button:hover .logo-wordmark { color: #ffebd9; }
+.logo-shoe { width: 72px; height: auto; flex: none; }
+.logo-wordmark { display: inline-block; position: relative; font-family: Impact, 'Arial Black', Arial, sans-serif; font-weight: 1000; font-size: clamp(27px, 2.6vw, 42px); letter-spacing: -.055em; font-style: italic; transform: skew(-6deg); line-height: 1; transition: color .2s; }
+.logo-underline { display: block; position: absolute; height: 7px; bottom: -13px; left: 27%; width: 66%; background: var(--orange); transform: rotate(-7deg); border-radius: 65% 35% 60% 40%; }
+.main-nav { display: flex; align-items: center; justify-content: center; flex: 1 1 auto; gap: clamp(15px, 3.3vw, 52px); }
+.main-nav button { border: 0; color: #f2f2f2; background: transparent; padding: 13px 4px; font-size: clamp(15px, 1.5vw, 19px); font-weight: 700; transition: color .18s; }
+.main-nav button:hover { color: var(--orange); }
+.header-actions { display: flex; align-items: center; gap: clamp(4px, 1.1vw, 13px); flex: 0 0 auto; }
+.icon-button { position: relative; display: grid; place-items: center; width: 47px; height: 47px; padding: 8px; color: #fff; background: transparent; border: 0; border-radius: 50%; transition: background .2s, transform .2s; }
+.icon-button:hover { background: #ffffff18; transform: translateY(-2px); }
+.icon-button svg { display: block; width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+.cart-badge { position: absolute; right: -1px; top: 0; display: grid; place-items: center; min-width: 21px; height: 21px; padding: 0 4px; border-radius: 99px; background: var(--orange); color: white; font-size: 12px; font-weight: 800; }
+.hero { position: relative; isolation: isolate; min-height: clamp(612px, calc(100vh - 128px), 840px); }
+.hero-content { position: relative; min-height: inherit; display: grid; grid-template-columns: 58% 42%; align-items: stretch; }
+.hero-copy { position: relative; z-index: 3; padding-top: clamp(34px, 5.1vh, 73px); padding-bottom: 130px; }
+.brands { display: flex; justify-content: flex-start; align-items: center; gap: clamp(19px, 2.8vw, 47px); max-width: 710px; margin-bottom: clamp(55px, 6.8vh, 90px); }
+.brand { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; height: 72px; max-width: 142px; padding: 4px 6px; color: white; background: transparent; border: 0; opacity: .94; transition: opacity .18s, transform .18s, color .18s; }
+.brand:hover { opacity: 1; transform: translateY(-4px) scale(1.02); color: #ffd2a4; }
+.brand-nike { width: 123px; flex-direction: column; gap: 0; }
+.nike-text { font: italic 900 36px/.9 Impact, 'Arial Black', sans-serif; letter-spacing: -.07em; }
+.brand-nike svg { width: 100px; height: 29px; margin-top: -2px; }
+.brand-adidas { width: 103px; flex-direction: column; gap: 2px; font-size: 22px; letter-spacing: -.065em; font-weight: 800; }
+.brand-adidas svg { width: 74px; height: 34px; }
+.brand-newbalance { width: 135px; flex-direction: column; gap: 0; }
+.nb-monogram { display: block; font: italic 1000 55px/.75 Impact, 'Arial Black', sans-serif; letter-spacing: -.13em; padding-right: 9px; }
+.nb-caption { display: block; font-size: 12px; font-weight: 800; letter-spacing: -.07em; margin-top: 7px; }
+.brand-jordan { flex-direction: column; gap: 2px; min-width: 92px; font-size: 14px; font-weight: 900; letter-spacing: .01em; }
+.brand-jordan svg { width: 49px; height: 49px; }
+.hero h1 { margin: 0; font-family: Impact, 'Arial Black', 'Arial Narrow', sans-serif; font-size: clamp(66px, 6.8vw, 122px); font-style: italic; font-stretch: condensed; font-weight: 1000; letter-spacing: -.055em; line-height: .99; text-shadow: 2px 3px 0 #0003; position: relative; white-space: nowrap; }
+.paint-stroke { display: block; width: clamp(142px, 16vw, 236px); height: 13px; margin: 17px 0 clamp(31px, 4vh, 55px) 127px; background: var(--orange); transform: rotate(-7deg); border-radius: 99% 45% 20% 45%; box-shadow: 38px 5px 0 -5px rgba(255,115,0,.65); }
+.paint-stroke::after { content: ''; display: block; height: 21px; width: 6px; border-radius: 10px; background: var(--orange); position: absolute; left: 66%; top: 8px; }
+.cta-button { display: inline-flex; justify-content: space-between; align-items: center; gap: 26px; min-height: 80px; min-width: 328px; padding: 16px 30px 16px 40px; border: 0; border-radius: 11px; background: var(--orange); color: #111; font-size: 25px; font-weight: 900; box-shadow: 0 14px 42px rgba(0,0,0,.32); transition: transform .2s, background .2s, box-shadow .2s; }
+.cta-button:hover { background: #ff901e; transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,.4); }
+.cta-button:active { transform: translateY(0) scale(.99); }
+.cta-button svg { width: 31px; height: 24px; flex-shrink: 0; }
+.hero-visual { position: relative; isolation: isolate; min-width: 0; }
+.sneaker-image { position: absolute; z-index: 2; width: clamp(555px, 58vw, 945px); max-width: none; height: auto; bottom: clamp(14px, 5vh, 62px); right: clamp(-175px, -7vw, -50px); filter: drop-shadow(-16px 36px 18px rgba(0,0,0,.52)); }
+.visual-ring { position: absolute; z-index: -1; width: 660px; height: 440px; right: -160px; top: 100px; border: 45px solid rgba(255,255,255,.047); border-radius: 50%; transform: rotate(-25deg); }
+.visual-annotation { position: absolute; z-index: 3; bottom: 74px; right: 0; font-size: 11px; color: #ffffff99; letter-spacing: .28em; transform: rotate(-90deg) translateX(100%); transform-origin: bottom right; white-space: nowrap; }
+.graffiti { position: absolute; pointer-events: none; z-index: 1; opacity: .94; filter: drop-shadow(0 3px 2px rgba(40,0,0,.28)); }
+.graffiti-crown { width: clamp(195px, 17vw, 290px); top: -12px; right: 25.5%; transform: rotate(-13deg); }
+.graffiti-x { width: clamp(100px, 11vw, 155px); bottom: 55px; right: -24px; transform: rotate(-17deg); }
+.benefits { position: relative; z-index: 5; background: #f7f7f6; color: #101112; padding: 54px 0 48px; box-shadow: 0 12px 0 #f7f7f6; }
+.benefits::before { content: ''; position: absolute; left: 0; right: 0; top: -22px; height: 30px; background: #f7f7f6; clip-path: polygon(0 60%,3% 28%,6% 52%,9% 18%,12% 48%,15% 28%,18% 65%,21% 40%,24% 60%,28% 21%,32% 51%,35% 30%,38% 69%,42% 39%,46% 60%,50% 24%,54% 62%,58% 32%,62% 57%,66% 18%,71% 57%,75% 35%,79% 63%,83% 21%,87% 53%,92% 27%,96% 56%,100% 24%,100% 100%,0 100%); }
+.benefits::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 30px; pointer-events: none; opacity: .2; background: linear-gradient(0deg,#cbcbcb,transparent); }
+.benefits-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: stretch; }
+.benefit { min-width: 0; display: flex; align-items: flex-start; justify-content: center; gap: clamp(16px, 2vw, 29px); padding: 12px clamp(20px, 2.6vw, 39px); }
+.benefit + .benefit { border-left: 1px solid #cecece; }
+.benefit svg { width: clamp(42px, 4.8vw, 66px); height: clamp(42px, 4.8vw, 66px); flex: 0 0 auto; margin-top: 2px; }
+.benefit h2 { font-size: clamp(23px, 2.3vw, 33px); line-height: 1.07; font-weight: 900; margin: 0 0 11px; letter-spacing: -.04em; }
+.benefit p { margin: 0; font-size: clamp(16px, 1.53vw, 22px); line-height: 1.3; color: #494949; }
+.maintenance-dialog { position: fixed; z-index: 100; width: min(430px, calc(100vw - 32px)); max-width: 430px; margin: auto; padding: 0; border: 0; border-radius: 14px; background: #fff; box-shadow: 0 25px 95px #0009; }
+.maintenance-dialog::backdrop { background: rgba(0,0,0,.74); backdrop-filter: blur(7px); }
+.maintenance-dialog[open] { animation: dialog-appear .18s ease-out; }
+.dialog-body { padding: 38px 31px 29px; text-align: center; position: relative; overflow: hidden; }
+.dialog-body::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 7px; background: var(--orange); }
+.dialog-symbol { width: 54px; height: 54px; display: grid; place-items: center; padding-right: 7px; margin: 0 auto 19px; border-radius: 50%; background: #181818; color: var(--orange); font-style: italic; font-weight: 900; font-size: 30px; letter-spacing: -7px; }
+.maintenance-dialog h2 { font-family: Impact, 'Arial Black', sans-serif; font-style: italic; letter-spacing: .005em; text-transform: uppercase; line-height: 1.05; font-size: 33px; margin: 0 0 13px; }
+.maintenance-dialog p { color: #535353; line-height: 1.5; font-size: 16px; margin: 0 0 26px; }
+.dialog-ok { display: block; width: 100%; min-height: 57px; border: 0; border-radius: 9px; background: var(--orange); color: #131313; font-size: 19px; font-weight: 900; transition: background .2s, transform .2s; }
+.dialog-ok:hover { background: #ff922c; }
+.dialog-ok:active { transform: scale(.99); }
+@keyframes dialog-appear { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (min-width: 1900px) {
+  .hero { min-height: 825px; }
+  .hero-copy { padding-top: 75px; }
+  .sneaker-image { width: 980px; right: -165px; bottom: 38px; }
+  .graffiti-crown { right: 29%; }
+}
+@media (max-width: 1190px) and (min-width: 801px) {
+  .container { width: calc(100% - 64px); }
+  .header-layout { gap: 20px; }
+  .logo-shoe { width: 54px; }
+  .main-nav { gap: 22px; }
+  .hero-copy { padding-top: 35px; }
+  .brands { gap: 15px; margin-bottom: 67px; }
+  .brand-nike { width: 96px; }
+  .brand-adidas { width: 88px; }
+  .brand-newbalance { width: 104px; }
+  .brand-jordan { min-width: 70px; }
+  .hero h1 { font-size: clamp(62px, 7.4vw, 85px); }
+  .sneaker-image { width: clamp(520px, 61vw, 725px); right: -90px; bottom: 55px; }
+  .graffiti-crown { right: 20%; }
+  .benefit { padding: 10px 18px; gap: 16px; }
+}
+@media (max-width: 800px) {
+  .container { width: calc(100% - 42px); }
+  .header-layout { min-height: 82px; gap: 12px; flex-wrap: wrap; justify-content: space-between; padding-top: 7px; }
+  .logo-button { gap: 7px; }
+  .logo-shoe { width: 47px; }
+  .logo-wordmark { font-size: clamp(24px, 4.7vw, 32px); }
+  .logo-underline { height: 5px; bottom: -9px; }
+  .header-actions { gap: 3px; }
+  .icon-button { width: 40px; height: 42px; padding: 6px; }
+  .icon-button svg { width: 25px; height: 25px; }
+  .main-nav { flex: 0 0 100%; order: 3; justify-content: center; gap: clamp(10px, 4vw, 25px); padding: 7px 0 15px; }
+  .main-nav button { border: 1px solid #ffffff50; border-radius: 28px; padding: 10px clamp(15px, 3vw, 22px); font-size: 14px; }
+  .main-nav button:hover { border-color: var(--orange); }
+  .hero { min-height: auto; }
+  .hero-content { display: flex; flex-direction: column; }
+  .hero-copy { padding-top: 13px; padding-bottom: 0; }
+  .brands { width: 100%; max-width: 510px; justify-content: space-between; margin: 0 0 42px; gap: 5px; }
+  .brand { height: 60px; padding: 2px; }
+  .brand-nike { width: 84px; }
+  .nike-text { font-size: 29px; }
+  .brand-nike svg { width: 78px; height: 19px; }
+  .brand-adidas { width: 73px; font-size: 16px; }
+  .brand-adidas svg { width: 59px; height: 28px; }
+  .brand-newbalance { width: 88px; }
+  .nb-monogram { font-size: 39px; }
+  .nb-caption { font-size: 8px; margin-top: 5px; }
+  .brand-jordan { min-width: 59px; font-size: 9px; }
+  .brand-jordan svg { width: 40px; height: 40px; }
+  .hero h1 { font-size: clamp(51px, 10.45vw, 84px); line-height: .96; letter-spacing: -.044em; }
+  .paint-stroke { width: 160px; height: 10px; margin: 12px 0 22px 90px; }
+  .cta-button { min-height: 62px; min-width: 257px; padding: 11px 22px; font-size: 20px; border-radius: 10px; }
+  .cta-button svg { width: 28px; }
+  .hero-visual { width: 100%; height: clamp(330px, 72vw, 530px); margin-top: -13px; }
+  .sneaker-image { width: clamp(520px, 115vw, 765px); max-width: none; right: clamp(-160px, -16vw, -58px); bottom: 0; filter: drop-shadow(-13px 23px 13px #0009); }
+  .visual-ring { top: 20px; right: -130px; width: 450px; height: 320px; border-width: 29px; }
+  .visual-annotation { display: none; }
+  .graffiti-crown { width: 175px; top: 160px; right: 2%; opacity: .65; }
+  .graffiti-x { width: 100px; right: -32px; bottom: 21px; }
+  .benefits { padding: 34px 0 28px; }
+  .benefits-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .benefit { padding: 8px 11px; gap: 9px; align-items: flex-start; }
+  .benefit svg { width: 37px; height: 37px; }
+  .benefit h2 { font-size: clamp(18px, 3vw, 23px); margin-bottom: 6px; }
+  .benefit p { font-size: clamp(12px, 1.9vw, 16px); }
+}
+@media (max-width: 600px) {
+  .container { width: calc(100% - 34px); }
+  .header-layout { min-height: 72px; }
+  .logo-shoe { width: 39px; }
+  .logo-wordmark { font-size: clamp(22px, 5.25vw, 27px); }
+  .header-actions { gap: 0; }
+  .icon-button { width: 35px; height: 40px; }
+  .icon-button svg { width: 24px; height: 24px; }
+  .main-nav { padding: 14px 0 15px; gap: 10px; }
+  .main-nav button { font-size: 13px; padding: 9px 17px; }
+  .brands { max-width: 420px; margin-bottom: 33px; }
+  .hero-copy { padding-top: 9px; }
+  .hero h1 { font-size: clamp(45px, 10.85vw, 65px); }
+  .paint-stroke { margin: 12px 0 25px 75px; }
+  .cta-button { min-width: 250px; }
+  .hero-visual { height: clamp(300px, 78vw, 435px); margin-top: -15px; }
+  .sneaker-image { width: clamp(490px, 139vw, 700px); right: clamp(-150px, -25vw, -66px); bottom: -3px; }
+  .graffiti-crown { top: 190px; right: -23px; width: 150px; }
+  .graffiti-x { width: 83px; }
+  .benefits { padding: 20px 0 23px; }
+  .benefits-grid { display: flex; flex-direction: column; }
+  .benefit { justify-content: flex-start; padding: 18px 7px; gap: 21px; }
+  .benefit + .benefit { border-left: none; border-top: 1px solid #d6d6d6; }
+  .benefit svg { width: 51px; height: 51px; }
+  .benefit h2 { font-size: 26px; margin-bottom: 7px; }
+  .benefit p { font-size: 17px; }
+}
+@media (max-width: 370px) {
+  .container { width: calc(100% - 26px); }
+  .logo-button { gap: 4px; }
+  .logo-shoe { width: 31px; }
+  .logo-wordmark { font-size: 21px; }
+  .icon-button { width: 31px; height: 38px; padding: 4px; }
+  .icon-button svg { width: 22px; height: 22px; }
+  .main-nav button { padding: 8px 13px; }
+  .brand-nike { width: 65px; }
+  .brand-adidas { width: 66px; }
+  .brand-newbalance { width: 76px; }
+  .brand-jordan { min-width: 54px; }
+  .hero h1 { font-size: clamp(43px, 11.3vw, 50px); }
+  .hero-visual { height: 292px; }
+  .sneaker-image { width: 495px; right: -120px; }
+  .maintenance-dialog h2 { font-size: 29px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
