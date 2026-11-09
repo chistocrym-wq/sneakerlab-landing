@@ -1,0 +1,75 @@
+:root{--black:#111;--orange:#ff7000;--paper:#f8f8f7;--text:#fff;font-family:Arial,Helvetica,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--black);overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid #ff810f;outline-offset:4px}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%)}
+.desktop-design{position:relative;max-width:1920px;margin:0 auto;line-height:0}
+.desktop-art{display:block;width:100%;height:auto;user-select:none}
+.desktop-clicks{position:absolute;inset:0;pointer-events:none}
+.hotspot{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);display:block;border:0;background:transparent;border-radius:8px;pointer-events:auto;transition:background .2s,box-shadow .2s;line-height:normal}
+.hotspot:hover{background:rgba(255,255,255,.085);box-shadow:inset 0 0 0 2px rgba(255,255,255,.26)}
+.hotspot--cta{border-radius:12px}
+.hotspot--cta:hover{background:rgba(255,255,255,.13);box-shadow:inset 0 0 0 2px rgba(0,0,0,.25),0 0 25px rgba(255,112,0,.18)}
+.mobile-design{display:none}
+.maintenance-modal{position:fixed;z-index:1000;max-width:min(92vw,450px);width:calc(100% - 34px);border:0;border-radius:15px;padding:0;box-shadow:0 22px 80px rgba(0,0,0,.38);color:#111;background:#fff;overflow:visible}
+.maintenance-modal::backdrop{background:rgba(0,0,0,.74);backdrop-filter:blur(8px)}
+.maintenance-modal[open]{animation:modal-in .2s ease-out}
+.modal-inner{position:relative;padding:38px 29px 29px;text-align:center;overflow:hidden;border-radius:15px}
+.modal-inner::before{content:"";position:absolute;left:-20px;top:0;right:-20px;height:7px;background:var(--orange);transform:rotate(-.7deg)}
+.modal-mark{display:inline-flex;align-items:center;justify-content:center;width:53px;height:53px;border-radius:50%;background:#161616;color:var(--orange);font-size:29px;font-weight:900;font-style:italic;letter-spacing:-8px;padding-right:8px;margin-bottom:19px}
+.maintenance-modal h2{font-weight:900;text-transform:uppercase;font-style:italic;font-size:clamp(24px,5vw,31px);line-height:1.06;margin:0 0 28px;letter-spacing:-.6px}
+.modal-ok{width:100%;min-height:54px;background:var(--orange);border:0;border-radius:9px;font-weight:900;font-size:19px;transition:background .2s,transform .2s}
+.modal-ok:hover{background:#ff8b1c}
+.modal-ok:active{transform:scale(.98)}
+@keyframes modal-in{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:800px){
+ .desktop-design{display:none}
+ .mobile-design{display:block}
+ .mobile-dark{position:relative;isolation:isolate;overflow:hidden;min-height:725px;background:linear-gradient(148deg,#191919 0%,#090909 48%,#323232 85%,#121212 100%);color:#fff}
+ .mobile-dark::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;background:repeating-linear-gradient(164deg,transparent 0,transparent 43px,rgba(255,255,255,.045) 45px,transparent 49px),radial-gradient(ellipse at 82% 44%,rgba(255,255,255,.17),transparent 54%)}
+ .mobile-dark::after{content:"";position:absolute;bottom:0;right:-20%;width:85%;height:40%;border:33px solid rgba(255,255,255,.07);transform:rotate(-25deg);pointer-events:none;z-index:-1}
+ .mobile-header{display:flex;align-items:center;justify-content:space-between;padding:21px 18px 10px;gap:8px}
+ .mobile-logo{display:flex;align-items:center;gap:7px;min-width:0;border:0;padding:0;background:transparent;color:#fff;font-weight:1000;font-style:italic;font-family:Impact,"Arial Black",sans-serif;letter-spacing:.4px;font-size:clamp(20px,5.4vw,28px);transform:skew(-5deg)}
+ .mobile-logo span{position:relative;white-space:nowrap}
+ .mobile-logo span::after{content:"";height:5px;background:var(--orange);position:absolute;bottom:-8px;left:24%;right:8%;border-radius:90%;transform:rotate(-5deg)}
+ .logo-shoe{width:38px;min-width:31px;height:31px}
+ .mobile-header-actions{display:flex;align-items:center;gap:6px}
+ .icon-button{position:relative;display:grid;place-items:center;width:32px;height:36px;padding:4px;border:0;color:#fff;background:transparent}
+ .icon-button svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+ .cart-count{position:absolute;top:-1px;right:-3px;display:grid;place-items:center;min-width:14px;height:14px;border-radius:50%;background:#ff7300;color:#fff;font-size:9px;font-weight:900}
+ .mobile-nav{display:flex;justify-content:center;gap:10px;margin:21px 12px 14px}
+ .mobile-nav button{border:1px solid rgba(255,255,255,.27);background:rgba(0,0,0,.23);color:#eee;border-radius:100px;padding:9px 15px;font-size:13px;font-weight:700}
+ .mobile-nav button:hover{border-color:var(--orange)}
+ .brand-strip{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-around;gap:9px;padding:15px 16px 10px;min-height:76px}
+ .brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;max-width:25%;height:50px;padding:0;background:transparent;border:0;color:#fff;filter:drop-shadow(0 2px 3px #000);font-weight:900;white-space:nowrap}
+ .brand:hover{color:#ffb16a}
+ .brand-nike{font-family:Impact,"Arial Black",sans-serif;font-size:25px;font-style:italic}
+ .nike-swoosh{width:53px;height:6px;background:white;border-radius:50%;transform:skew(-52deg) rotate(-12deg);margin-top:-4px}
+ .brand-adidas{font-size:15px;letter-spacing:-.9px}
+ .adidas-stripes{font-size:24px;line-height:18px;letter-spacing:-7px;transform:rotate(-16deg);margin-left:-4px}
+ .brand-nb{font-family:Impact,sans-serif;font-style:italic;font-size:28px;line-height:.8}
+ .brand-nb span{font-family:Arial,sans-serif;font-style:normal;font-weight:800;font-size:7px;letter-spacing:-.3px;margin-top:5px}
+ .brand-jordan{font-size:13px;letter-spacing:-.4px;transform:rotate(-5deg)}
+ .mobile-copy{position:relative;z-index:3;margin:24px 18px 0}
+ .mobile-copy h2{font-family:Impact,"Arial Black",sans-serif;font-weight:900;font-size:clamp(47px,12.8vw,80px);line-height:.94;letter-spacing:-.5px;white-space:nowrap;font-style:italic;text-shadow:2px 3px 1px rgba(0,0,0,.26);margin:0}
+ .paint-cross{position:absolute;right:-7px;top:-56px;color:var(--orange);font-size:62px;font-family:Impact,sans-serif;transform:rotate(-15deg);opacity:.95}
+ .orange-brush{display:block;width:144px;height:8px;border-radius:60%;transform:rotate(-6deg);margin:13px 0 30px 95px;background:var(--orange);box-shadow:24px 4px 0 -2px #de5900}
+ .mobile-cta{border:0;border-radius:10px;min-height:62px;padding:0 25px;display:inline-flex;align-items:center;gap:16px;background:var(--orange);font-size:20px;font-weight:900;color:#111;box-shadow:0 11px 31px rgba(0,0,0,.3)}
+ .mobile-cta span{font-size:29px}
+ .mobile-cta:active{transform:scale(.98)}
+ .mobile-shoe{position:relative;margin-top:-10px;height:clamp(315px,86vw,500px);width:100%;overflow:hidden;z-index:1}
+ .mobile-shoe::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#131313 0,transparent 26%,transparent 82%,rgba(18,18,18,.55) 100%),linear-gradient(90deg,#161616 0,rgba(16,16,16,.2) 22%,transparent 52%)}
+ .mobile-shoe img{display:block;width:100%;height:100%;object-fit:cover;object-position:73% 50%;filter:contrast(1.1) saturate(1.09)}
+ .mobile-benefits{background:var(--paper);color:#111;padding:15px 23px 18px;margin-top:-1px;position:relative}
+ .mobile-benefits::before{content:"";position:absolute;left:0;right:0;top:-13px;height:16px;background:var(--paper);clip-path:polygon(0 65%,4% 30%,8% 60%,13% 12%,19% 50%,24% 32%,30% 82%,35% 31%,42% 57%,50% 25%,57% 72%,63% 36%,69% 62%,77% 20%,84% 57%,91% 22%,96% 51%,100% 15%,100% 100%,0 100%)}
+ .benefit-row{display:flex;gap:23px;padding:24px 5px 22px;align-items:center}
+ .benefit-row+.benefit-row{border-top:1px solid #d8d8d8}
+ .benefit-row svg{width:54px;height:54px;flex-shrink:0;fill:none;stroke:#111;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+ .benefit-row h3{font-size:26px;line-height:1.08;margin:0 0 7px;font-weight:900;letter-spacing:-.6px}
+ .benefit-row p{color:#484848;font-size:17px;line-height:1.35;margin:0}
+}
+@media(max-width:360px){.mobile-header{padding:18px 12px 10px}.mobile-logo{font-size:19px}.logo-shoe{width:31px}.mobile-header-actions{gap:1px}.icon-button{width:29px}.mobile-copy{margin:18px 14px 0}.mobile-copy h2{font-size:12.5vw}.mobile-cta{font-size:18px;padding:0 19px}}
+@media(min-width:801px) and (max-width:1040px){.desktop-design{min-height:auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

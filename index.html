@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="SNEAKERLAB — брендовые кроссовки Nike, adidas, New Balance и Jordan. Уличный стиль, доставка, обмен и удобная оплата.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="SNEAKERLAB — брендовые кроссовки">
+  <meta property="og:description" content="Брендовые кроссовки и уличный стиль. Скоро открытие.">
+  <meta property="og:image" content="assets/landing-desktop.webp">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <title>SNEAKERLAB — брендовые кроссовки</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main id="content">
+    <!-- Desktop / tablet: the approved design is reproduced pixel-for-pixel. -->
+    <section class="desktop-design" aria-labelledby="page-heading">
+      <h1 id="page-heading" class="sr-only">Брендовые кроссовки Nike, adidas, New Balance и Jordan — SNEAKERLAB</h1>
+      <p class="sr-only">Выберите модель. Доставка по всей России от одного дня, обмен и возврат — 14 дней, оплата картой онлайн или при получении.</p>
+      <img class="desktop-art" src="assets/landing-desktop.webp" width="1182" height="1110" alt="SNEAKERLAB: уличный лендинг с кроссовком Nike Air Jordan на фоне граффити. Ниже условия доставки, обмена и оплаты." draggable="false" fetchpriority="high">
+      <nav class="desktop-clicks" aria-label="Навигация по магазину">
+        <button type="button" data-maintenance class="hotspot" style="--x:3.4%;--y:1.1%;--w:26%;--h:6.6%" aria-label="SNEAKERLAB — главная"></button>
+        <button type="button" data-maintenance class="hotspot" style="--x:36.6%;--y:1.4%;--w:10.8%;--h:5.2%" aria-label="Мужские"></button>
+        <button type="button" data-maintenance class="hotspot" style="--x:48.0%;--y:1.4%;--w:11.3%;--h:5.2%" aria-label="Женские"></button>
+        <button type="button" data-maintenance class="hotspot" style="--x:59.8%;--y:1.4%;--w:9.0%;--h:5.2%" aria-label="Бренды"></button>
+        <button type="button" data-maintenance class="hotspot hotspot--icon" style="--x:78.4%;--y:1.3%;--w:5.2%;--h:6.3%" aria-label="Поиск"></button>
+        <button type="button" data-maintenance class="hotspot hotspot--icon" style="--x:84.2%;--y:1.3%;--w:5.3%;--h:6.3%" aria-label="Избранное"></button>
+        <button type="button" data-maintenance class="hotspot hotspot--icon" style="--x:90.5%;--y:1.3%;--w:6.0%;--h:6.3%" aria-label="Корзина"></button>
+        <button type="button" data-maintenance class="hotspot" style="--x:4.5%;--y:14.6%;--w:14.3%;--h:10.2%" aria-label="Кроссовки Nike"></button>
+        <button type="button" data-maintenance class="hotspot" style="--x:19.2%;--y:14.6%;--w:10.9%;--h:10.2%" aria-label="Кроссовки adidas"></button>
+        <button type="button" data-maintenance class="hotspot" style="--x:30.1%;--y:14.6%;--w:13.0%;--h:10.2%" aria-label="Кроссовки New Balance"></button>
+        <button type="button" data-maintenance class="hotspot" style="--x:43.5%;--y:14.6%;--w:9.5%;--h:10.2%" aria-label="Кроссовки Jordan"></button>
+        <button type="button" data-maintenance class="hotspot hotspot--cta" style="--x:5.0%;--y:52.7%;--w:29.0%;--h:7.0%" aria-label="Выбрать модель"></button>
+      </nav>
+    </section>
+
+    <!-- A separate fully semantic, responsive layout for narrow screens. -->
+    <section class="mobile-design" aria-label="SNEAKERLAB — мобильная версия сайта">
+      <div class="mobile-dark">
+        <header class="mobile-header">
+          <button data-maintenance class="mobile-logo tap-target" type="button" aria-label="SNEAKERLAB — главная">
+            <svg class="logo-shoe" viewBox="0 0 68 38" fill="none" aria-hidden="true"><path d="M4 27c6-1 12-3 18-8l9-12 9 4 5 11c5 4 11 5 19 5v6H4v-6Z" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round"/><path d="m22 18 7 5m0-14 8 6m-27 18h51" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <span>SNEAKERLAB</span>
+          </button>
+          <div class="mobile-header-actions">
+            <button data-maintenance type="button" class="icon-button" aria-label="Поиск"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16 16 5 5"/></svg></button>
+            <button data-maintenance type="button" class="icon-button" aria-label="Избранное"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-9-5.5-9-11.7a5 5 0 0 1 9-3 5 5 0 0 1 9 3C21 15.5 12 21 12 21Z"/></svg></button>
+            <button data-maintenance type="button" class="icon-button cart-icon" aria-label="Корзина"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h2.5l2.1 11h12.6l2-8.2H5"/><circle cx="8.6" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="cart-count">0</span></button>
+          </div>
+        </header>
+        <nav class="mobile-nav" aria-label="Категории">
+          <button data-maintenance type="button">Мужские</button>
+          <button data-maintenance type="button">Женские</button>
+          <button data-maintenance type="button">Бренды</button>
+        </nav>
+        <div class="brand-strip" aria-label="Представленные бренды">
+          <button data-maintenance type="button" class="brand brand-nike" aria-label="Nike">NIKE<span class="nike-swoosh"></span></button>
+          <button data-maintenance type="button" class="brand brand-adidas" aria-label="adidas"><span class="adidas-stripes">◢◢◢</span>adidas</button>
+          <button data-maintenance type="button" class="brand brand-nb" aria-label="New Balance">NB<span>new balance</span></button>
+          <button data-maintenance type="button" class="brand brand-jordan" aria-label="Jordan">JORDAN</button>
+        </div>
+        <div class="mobile-copy">
+          <span class="paint-cross" aria-hidden="true">✕</span>
+          <h2>БРЕНДОВЫЕ<br>КРОССОВКИ</h2>
+          <span class="orange-brush" aria-hidden="true"></span>
+          <button data-maintenance type="button" class="mobile-cta">Выбрать модель <span aria-hidden="true">⟶</span></button>
+        </div>
+        <div class="mobile-shoe" aria-hidden="true"><img src="assets/sneaker-mobile.webp" alt="" width="732" height="655" loading="lazy"></div>
+      </div>
+      <section class="mobile-benefits" aria-label="Условия заказа">
+        <div class="benefit-row">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M3 12h24v23H3zM27 21h10l8 9v5H27z"/><circle cx="12" cy="37" r="4"/><circle cx="36" cy="37" r="4"/></svg>
+          <div><h3>Доставка</h3><p>По всей России<br>от 1 дня</p></div>
+        </div>
+        <div class="benefit-row">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 18a17 17 0 0 1 30-4l4 5M40 30a17 17 0 0 1-30 4l-4-5"/><path d="m42 8 1 12-12-1M6 40 5 28l12 1"/></svg>
+          <div><h3>Обмен</h3><p>Лёгкий обмен<br>и возврат — 14 дней</p></div>
+        </div>
+        <div class="benefit-row">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="10" width="42" height="28" rx="3"/><path d="M3 20h42M32 30h7"/></svg>
+          <div><h3>Оплата</h3><p>Картой онлайн<br>или при получении</p></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <dialog class="maintenance-modal" id="maintenance-modal" aria-labelledby="maintenance-title">
+    <div class="modal-inner">
+      <div class="modal-mark" aria-hidden="true">//</div>
+      <h2 id="maintenance-title">Техническое обслуживание</h2>
+      <button type="button" id="modal-ok" class="modal-ok">ОК</button>
+    </div>
+  </dialog>
+</body>
+</html>
